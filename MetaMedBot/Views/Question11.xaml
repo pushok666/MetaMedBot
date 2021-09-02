@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="MetaMedBot.Views.Question11"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MetaMedBot.Views" xmlns:viewmodelapplication="clr-namespace:MetaMedBot.ViewModelApplication" d:DataContext="{d:DesignInstance Type=viewmodelapplication:VMApplication}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="TestQuestionGrid" Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="4">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Content="Как скоро, после того как вы проснулись "
+                       FontSize="40"
+                       FontFamily="Tahoma"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Label Grid.Row="1"
+                       Content="Вы выкуриваете первую сигарету"
+                       FontSize="40"
+                       FontFamily="Tahoma"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.RowSpan="4">
+                <ListView x:Name="ListQuestions"
+                          Tag="11"
+                          Background="AliceBlue"
+                          BorderThickness="0"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                          ItemsSource="{Binding AnswerQ11}"
+                          SelectedItem="{Binding SelectedAnswer, Mode=TwoWay}"
+                          SelectionChanged="ListQuestions_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Aanswer}" FontSize="46" FontFamily="Tahoma"></TextBlock>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </Grid>
+            
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="1"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="7"
+                        Grid.RowSpan="3"
+                        Content="Назад"
+                        Click="Back1_Click"
+                        FontSize="35">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="1"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="7"
+                        Grid.RowSpan="3"
+                        Content="Я не курю"
+                        FontSize="30"
+                        Click="NonSmoker_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

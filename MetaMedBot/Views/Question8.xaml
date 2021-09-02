@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="MetaMedBot.Views.Question8"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MetaMedBot.Views" xmlns:viewmodelapplication="clr-namespace:MetaMedBot.ViewModelApplication" d:DataContext="{d:DesignInstance Type=viewmodelapplication:VMApplication}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="PeriodAlcoholPage" Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.ColumnSpan="6">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.RowSpan="2">
+                <TextBlock Text ="Как часто за последний год Вы не могли вспомнить день, в который выпивали?"
+                           TextWrapping="Wrap"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontFamily="Tahoma"
+                       FontSize="33"
+                       x:Name="QuestionL"/>
+            </Grid>
+            <Grid Grid.Row="2" Grid.RowSpan="5">
+                <ListView x:Name="ListQuestions"
+                          Background="AliceBlue"
+                          BorderThickness="0"
+                          ItemsSource="{Binding AnswerQ3_8}"
+                          SelectedItem="{Binding SelectedAnswer, Mode=TwoWay}"
+                          SelectionChanged="ListQuestions_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Aanswer}" FontSize="46" FontFamily="Tahoma"></TextBlock>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="1"
+                      Grid.ColumnSpan="3"
+                      Grid.Row="0"
+                      Grid.RowSpan="2"
+                      Background="AliceBlue">
+                    <Button Content="Назад"
+                            Click="Back1_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
