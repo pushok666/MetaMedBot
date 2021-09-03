@@ -18,7 +18,8 @@
         <Grid Grid.Row="0"
               Grid.RowSpan="5">
             <ContentPresenter x:Name="MainContent"></ContentPresenter>
+            <Button Content="начать диагностику" x:Name="Start" HorizontalAlignment="Left" Margin="347,191,0,0" VerticalAlignment="Top" Width="171" Click="NextButton_Click" Height="69"/>
         </Grid>
-        
+
     </Grid>
 </Window>

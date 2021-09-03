@@ -20,7 +20,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.RowSpan="2">
-            <TextBlock Text="Что бы измерить давление приложите палец как показано на картинке и ждите звукогого сигнала"
+            <TextBlock Text="Что бы измерить давление наденьте манжетку расположенную на правом плече робота и не снимайте ее до звукого сигнала"
                        TextWrapping="Wrap"
                        FontSize="30"
                        HorizontalAlignment="Center" TextAlignment="Center"

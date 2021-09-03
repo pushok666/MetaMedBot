@@ -13,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net;
+using System.IO;
+using System.Net.Mail;
 
 namespace MetaMedBot.Views
 {
@@ -21,6 +24,7 @@ namespace MetaMedBot.Views
     /// </summary>
     public partial class SendEmail : UserControl
     {
+        string email = "";
         public SendEmail()
         {
             InitializeComponent();
@@ -34,7 +38,8 @@ namespace MetaMedBot.Views
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var myTextBox = (TextBox)sender;
-            bool result = ValidatorExtensions.IsValidEmailAddress(myTextBox.Text);
+            email = myTextBox.Text;
+           
             
         }
 
@@ -45,8 +50,32 @@ namespace MetaMedBot.Views
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Отравленно");
-            App.MContent.Content = MainWindow.userControls[App.countUserC];
+            bool result = ValidatorExtensions.IsValidEmailAddress(email);
+            if(result == true)
+            {
+                MailAddress from = new MailAddress("BoozerMedRobot@yandex.ru", "Doctor");
+                // кому отправляем
+                MailAddress to = new MailAddress(email);
+                MailMessage m = new MailMessage(from, to);
+                m.Subject = "Анализы";
+                m.Body = "<h2> ваши анализы</h2>";
+                m.IsBodyHtml = true;
+                // адрес smtp-сервера и порт, с которого будем отправлять письмо
+                SmtpClient smtp = new SmtpClient("smtp.yandex.ru", 587);
+                smtp.Credentials = new NetworkCredential(@"BoozerMedRobot@yandex.ru", @"Robot12345");
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                
+                smtp.Send(m);
+                MessageBox.Show("Отравленно");
+                App.MContent.Content = MainWindow.userControls[App.countUserC];
+            }
+            else
+            {
+                MessageBox.Show("email введен неправильно");
+            }
+            
         }
     }
 

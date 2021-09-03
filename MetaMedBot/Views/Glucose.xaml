@@ -20,7 +20,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.RowSpan="2">
-            <TextBlock Text="Что бы измерить уровень глюкозы приложите палец как показано на картинке и ждите звукогого сигнала"
+            <TextBlock Text="Что бы измерить уровень глюкозы приложите палец в неинвазивный глюкометр и ждите звукого сигнала"
                        TextWrapping="Wrap"
                        FontSize="30"
                        HorizontalAlignment="Center" TextAlignment="Center"

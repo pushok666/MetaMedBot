@@ -25,7 +25,7 @@ namespace MetaMedBot.Views
         public TimerControl()
         {
             InitializeComponent();
-            tm.Interval = TimeSpan.FromSeconds(10);
+            tm.Interval = TimeSpan.FromSeconds(60);
             tm.Tick += Tm_Tick;
             tm.Start();
         }
@@ -47,10 +47,13 @@ namespace MetaMedBot.Views
 
         private void No_Click(object sender, RoutedEventArgs e)
         {
+            /*
             tm.Stop();
             Start_Page.timer.Stop();
             System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             Application.Current.Shutdown();
+            */
+            Application.Current.MainWindow.Close();
         }
     }
 }

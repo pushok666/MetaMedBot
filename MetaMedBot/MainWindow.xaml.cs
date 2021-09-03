@@ -29,6 +29,28 @@ namespace MetaMedBot
 
         public MainWindow()
         {
+           
+            //userControls.Add(new ImageResult());
+            
+
+            InitializeComponent();
+            this.DataContext = new VMApplication();
+            App.MContent = MainContent;
+            //MainContent.Content = userControls[App.countUserC];
+
+
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.countUserC--;
+
+            MainContent.Content = userControls[App.countUserC];
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
             userControls.Add(new Start_Page());
             userControls.Add(new IP());
             userControls.Add(new PP());
@@ -54,29 +76,8 @@ namespace MetaMedBot
             userControls.Add(new Oxygen());
             userControls.Add(new Volume());
             userControls.Add(new Glucose());
-            //userControls.Add(new ImageResult());
-            
-
-            InitializeComponent();
-            this.DataContext = new VMApplication();
-            App.MContent = MainContent;
-            MainContent.Content = userControls[App.countUserC];
-
-
-
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            App.countUserC--;
-
-            MainContent.Content = userControls[App.countUserC];
-        }
-
-        private void NextButton_Click(object sender, RoutedEventArgs e)
-        {
-            App.countUserC++;
-
+            Start.IsEnabled = false;
+            Start.Visibility = Visibility.Hidden;
             MainContent.Content = userControls[App.countUserC];
         }
     }

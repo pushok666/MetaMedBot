@@ -22,6 +22,7 @@ namespace MetaMedBot.Views
     {
         public PollResult()
         {
+            Start_Page.timer.Interval = TimeSpan.FromSeconds(180);
             InitializeComponent();
         }
 
@@ -86,8 +87,9 @@ namespace MetaMedBot.Views
 
         private void BackToMainPage_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
-            Application.Current.Shutdown();
+           // System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+           // Application.Current.Shutdown();
+            Application.Current.MainWindow.Close();
         }
 
         private void BigDiag_Click(object sender, RoutedEventArgs e)

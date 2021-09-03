@@ -22,17 +22,18 @@ namespace MetaMedBot.Views
     /// </summary>
     public partial class Start_Page : UserControl
     {
-        public static DispatcherTimer timer = new DispatcherTimer();
+        public static DispatcherTimer timer;
         public Start_Page()
         {
+            timer = new DispatcherTimer();
             InitializeComponent();
-            timer.Interval = TimeSpan.FromSeconds(15);
-            timer.Tick += Timer_Tick;
+           
             
             Application.Current.MainWindow.KeyUp += MainWindow_KeyUp;
             Application.Current.MainWindow.TouchDown += MainWindow_TouchDown;
             Application.Current.MainWindow.MouseDown += MainWindow_MouseDown;
             Application.Current.MainWindow.MouseMove += MainWindow_MouseMove;
+            
         }
 
         private void MainWindow_MouseMove(object sender, MouseEventArgs e)
@@ -67,6 +68,9 @@ namespace MetaMedBot.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
+            timer.Interval = TimeSpan.FromSeconds(90);
+            timer.Tick += Timer_Tick;
             timer.Start();
             App.countUserC++;
             App.MContent.Content =MainWindow.userControls[App.countUserC];

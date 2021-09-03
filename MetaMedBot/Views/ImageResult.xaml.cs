@@ -33,8 +33,9 @@ namespace MetaMedBot.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
-            Application.Current.Shutdown();
+            //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            //Application.Current.Shutdown();
+            Application.Current.MainWindow.Close();
         }
 
         private void Email_Click(object sender, RoutedEventArgs e)
